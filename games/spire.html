@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mana Spire Decision</title>
+    <link rel="stylesheet" href="spire/spire.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="decision-shell">
+        <h1>The Mana Spire</h1>
+        <p class="description">
+          Jin has reached the Mana Spire and must decide what the ending of this
+          journey will cost. Look into each outcome first, then choose the fate
+          you are willing to accept.
+        </p>
+
+        <div id="messageBox" class="message-box">
+          Choose an action to witness its consequence.
+        </div>
+
+        <div class="oracle-panel">
+          <div class="oracle-copy">
+            <h2>Mana Spire Visions</h2>
+            <p>
+              Each decision reveals a possible future. One path preserves Jin at
+              the cost of the world. The other saves the Spire through
+              sacrifice.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision-grid">
+          <button
+            id="absorbButton"
+            class="decision-card"
+            type="button"
+            data-decision="absorb"
+          >
+            <span class="decision-title">Absorb the power</span>
+            <span class="decision-copy">
+              Jin takes the full force of the Spire into himself and survives
+              the moment.
+            </span>
+          </button>
+
+          <button
+            id="stabilizeButton"
+            class="decision-card"
+            type="button"
+            data-decision="stabilize"
+          >
+            <span class="decision-title">Stabilize the core</span>
+            <span class="decision-copy">
+              Jin gives up the power and anchors the Spire before it can break
+              the world.
+            </span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="visionModal"
+      class="modal hidden"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="visionTitle"
+    >
+      <div id="visionCard" class="modal-card vision-card">
+        <p id="visionEyebrow" class="modal-eyebrow">Vision Unfolding</p>
+        <h2 id="visionTitle">A future takes shape</h2>
+        <div class="vision-placeholder">
+          Add consequence image or cutscene here later
+        </div>
+        <p id="visionText" class="modal-text">
+          Placeholder text for the consequence scene.
+        </p>
+        <p id="visionContinue" class="modal-text modal-continue hidden">
+          Continue the story when you are ready.
+        </p>
+        <button id="rewindButton" type="button">Rewind the Vision</button>
+      </div>
+    </div>
+
+    <script src="spire/spire.js"></script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whispering Woods: The Wyvern's Path</title>
+    <link rel="stylesheet" href="maze/maze.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="game-shell">
+        <div class="topbar">
+          <div class="game-copy">
+            <h1>Whispering Woods: The Wyvern's Path</h1>
+            <p class="description">
+              Help Jin find the correct path out of the Whispering Woods. He
+              dares to venture toward the dangerous cliff to steal the legendary
+              Sky-Faller Longbow from a wyvern's nest.
+            </p>
+            <p class="help">Use Arrow Keys or WASD to move.</p>
+          </div>
+
+          <button id="resetButton" class="reset-button" type="button">
+            Restart Maze
+          </button>
+        </div>
+
+        <div class="board-wrap">
+          <canvas
+            id="mazeCanvas"
+            width="480"
+            height="480"
+            aria-label="Maze game board"
+          ></canvas>
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="winModal"
+      class="modal hidden"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="winTitle"
+    >
+      <div class="modal-card">
+        <p class="modal-eyebrow">Escape Achieved</p>
+        <h2 id="winTitle">The Woods Release You...</h2>
+        <p class="modal-text">
+          You guided Jin through the Whispering Woods. The path to the wyvern's
+          cliff now lies ahead.
+        </p>
+        <p class="modal-text modal-continue">
+          Continue the story when you are ready.
+        </p>
+      </div>
+    </div>
+
+    <div
+      id="illusionModal"
+      class="modal hidden"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="illusionTitle"
+    >
+      <div class="modal-card illusion-card">
+        <p class="modal-eyebrow">Whispering Woods Vision</p>
+        <h2 id="illusionTitle">A shadow stirs in the trees</h2>
+        <div class="illusion-media">Add photo or artwork here later</div>
+        <p id="illusionText" class="modal-text">
+          Placeholder text for Jin's fear, desire, or a false path omen.
+        </p>
+        <button id="closeIllusionButton" class="modal-button" type="button">
+          Continue Forward
+        </button>
+      </div>
+    </div>
+
+    <script src="maze/maze.js"></script>
+  </body>
+</html>

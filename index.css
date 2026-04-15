@@ -1,0 +1,127 @@
+:root {
+  --bg-top: #1e352a;
+  --bg-bottom: #0c1713;
+  --panel: rgba(240, 246, 235, 0.9);
+  --panel-border: rgba(175, 203, 179, 0.18);
+  --ink: #17211c;
+  --muted: #5a6d60;
+  --shadow: 0 30px 80px rgba(6, 17, 12, 0.34);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(194, 219, 177, 0.15), transparent 24%),
+    radial-gradient(circle at 85% 16%, rgba(98, 129, 95, 0.16), transparent 18%),
+    linear-gradient(155deg, var(--bg-top), var(--bg-bottom));
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.hub {
+  width: min(100%, 860px);
+  padding: 32px;
+  border-radius: 32px;
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+}
+
+.intro {
+  margin: 14px 0 0;
+  max-width: 58ch;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.game-card {
+  display: block;
+  padding: 22px;
+  border-radius: 24px;
+  text-decoration: none;
+  color: inherit;
+  background: linear-gradient(155deg, rgba(249, 251, 245, 0.98), rgba(228, 239, 228, 0.96));
+  border: 1px solid rgba(91, 121, 94, 0.16);
+  box-shadow: 0 18px 40px rgba(16, 32, 21, 0.12);
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    border-color 140ms ease;
+}
+
+.game-card:hover,
+.game-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 44px rgba(16, 32, 21, 0.18);
+  border-color: rgba(86, 122, 79, 0.34);
+}
+
+.game-card h2 {
+  margin: 0 0 10px;
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: 1.45rem;
+}
+
+.game-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.game-tag {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 8px 12px;
+  background: #567a4f;
+  color: #f7fbf3;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 16px;
+  }
+
+  .hub {
+    padding: 24px;
+    border-radius: 24px;
+  }
+}

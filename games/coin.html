@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin Exploit Test</title>
+    <link rel="stylesheet" href="coin/coin.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="coin-shell">
+        <h1>Coin Exploit Test</h1>
+        <p class="description">
+          Jin wants to see whether an old duplication exploit still works in
+          this world. Keep clicking the coin and observe what really happens.
+        </p>
+
+        <div class="status-panel">
+          <p id="statusText" class="status-text">
+            Click the coin to begin the exploit test.
+          </p>
+          <button id="resetButton" type="button">Reset Test</button>
+        </div>
+
+        <div class="play-area">
+          <canvas id="coinFx" class="coin-fx" aria-hidden="true"></canvas>
+          <button
+            id="coinButton"
+            class="coin-button"
+            type="button"
+            aria-label="Coin exploit test"
+          >
+            <img
+              id="coinImage"
+              src="../assets/img/holding_coin.png"
+              alt="Coin"
+            />
+          </button>
+        </div>
+
+        <div id="storyAction" class="story-action hidden">
+          <button id="continueButton" type="button">Continue Story</button>
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="storyModal"
+      class="modal hidden"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="storyTitle"
+    >
+      <div class="modal-card">
+        <p class="modal-eyebrow">Exploit Failure</p>
+        <h2 id="storyTitle">The coin was never meant to multiply</h2>
+        <p class="modal-text">
+          Jin learns that this world rejects the old exploit. The coin vanishes
+          instead, leaving behind only the lesson and the consequence.
+        </p>
+        <p class="modal-text modal-continue">
+          Continue the story when you are ready.
+        </p>
+      </div>
+    </div>
+
+    <script src="coin/coin.js"></script>
+  </body>
+</html>

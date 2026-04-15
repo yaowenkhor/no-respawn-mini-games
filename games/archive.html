@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sealed Archive Stones</title>
+    <link rel="stylesheet" href="archive/archive.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="puzzle-shell">
+        <div class="puzzle-copy">
+          <h1>Sealed Archive Stones</h1>
+          <p class="description">
+            Jin wants to access the sealed archive. Decipher the version runes
+            and align the stones from oldest to newest.
+          </p>
+        </div>
+
+        <div class="toolbar">
+          <p id="statusText" class="status">
+            Drag the stones into place, then check the sequence.
+          </p>
+          <div class="toolbar-actions">
+            <button id="checkButton" type="button">Check Sequence</button>
+            <button id="hintButton" type="button">Show Hint</button>
+            <button id="resetButton" type="button">Reset Puzzle</button>
+          </div>
+        </div>
+
+        <div id="legendBox" class="legend hidden">
+          <div class="legend-card">triangle = v1.0</div>
+          <div class="legend-card">triangle | = v1.1</div>
+          <div class="legend-card">triangle | dot = v1.1.1</div>
+          <div class="legend-card">triangle || = v1.2</div>
+          <div class="legend-card">triangle ||| = v1.3</div>
+        </div>
+
+        <div
+          id="stoneTray"
+          class="stone-tray"
+          aria-label="Rune stone sequence"
+        ></div>
+      </section>
+    </main>
+
+    <div
+      id="winModal"
+      class="modal hidden"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="winTitle"
+    >
+      <div class="modal-card">
+        <p class="modal-eyebrow">Archive Opened</p>
+        <h2 id="winTitle">The Sequence Aligns</h2>
+        <p class="modal-text">
+          Jin has deciphered the stones and opened the sealed archive.
+        </p>
+        <p class="modal-text modal-continue">
+          Continue the story when you are ready.
+        </p>
+      </div>
+    </div>
+
+    <div
+      id="memoryModal"
+      class="modal hidden"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="memoryTitle"
+    >
+      <div class="modal-card">
+        <p class="modal-eyebrow">Archive Echo</p>
+        <h2 id="memoryTitle">A memory stirs in the stone</h2>
+        <div class="memory-placeholder">Add memory image or scene here later</div>
+        <p class="modal-text">
+          Placeholder for a memory, curse, hallucination, or echo triggered by
+          the wrong alignment.
+        </p>
+        <p class="modal-text modal-continue">
+          Endfall has not come yet. Rearrange the stones and try again.
+        </p>
+        <button id="closeMemoryButton" type="button">Return to the Stones</button>
+      </div>
+    </div>
+
+    <script src="archive/archive.js"></script>
+  </body>
+</html>

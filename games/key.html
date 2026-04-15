@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finding Key</title>
+    <link rel="stylesheet" href="key/key.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="key-shell">
+        <h1>Finding Key</h1>
+        <p class="description">
+          Jin needs the key to free Janice from Gallow's Hold. Search the
+          drunken guard before he wakes, or risk spending time listening to his
+          muttered truth.
+        </p>
+
+        <div class="topbar">
+          <div class="status-group">
+            <p class="status-label">Time Left</p>
+            <p id="timerText" class="timer-text">18s</p>
+          </div>
+          <div class="action-group">
+            <button id="resetButton" type="button">Reset Scene</button>
+          </div>
+        </div>
+
+        <p id="statusText" class="status-text">
+          Search the guard and find the key before he wakes.
+        </p>
+
+        <div class="scene-wrap">
+          <div
+            id="sceneBoard"
+            class="scene-board"
+            aria-label="Sleeping guard scene"
+          >
+            <img
+              class="scene-image"
+              src="../assets/img/find_the_keys.png"
+              alt="Sleeping guard holding the key somewhere on him"
+            />
+            <button
+              id="keySpot"
+              class="key-spot"
+              type="button"
+              aria-label="Hidden key"
+            ></button>
+            <button
+              id="mumbleButton"
+              class="mumble-button hidden"
+              type="button"
+              aria-label="Listen to the guard mumbling"
+            >
+              Listen
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="resultModal"
+      class="modal hidden"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="resultTitle"
+    >
+      <div class="modal-card">
+        <p id="resultEyebrow" class="modal-eyebrow">Outcome</p>
+        <h2 id="resultTitle">Jin has the key</h2>
+        <div class="modal-placeholder">
+          Add prison key close-up, wake-up scene, or story panel here later
+        </div>
+        <p id="resultText" class="modal-text">Placeholder outcome text.</p>
+        <p class="modal-text modal-continue">
+          Continue the story when you are ready.
+        </p>
+      </div>
+    </div>
+
+    <script src="key/key.js"></script>
+  </body>
+</html>

@@ -1,0 +1,240 @@
+:root {
+  --bg-top: #2d3428;
+  --bg-bottom: #10150f;
+  --panel: rgba(236, 232, 221, 0.9);
+  --panel-border: rgba(164, 156, 132, 0.24);
+  --ink: #22261d;
+  --muted: #5f6254;
+  --stone: linear-gradient(180deg, #d9d2bf, #c3baa3);
+  --stone-border: rgba(92, 83, 59, 0.3);
+  --stone-shadow: 0 12px 24px rgba(43, 37, 24, 0.16);
+  --selected: #7a8f4b;
+  --shadow: 0 28px 70px rgba(9, 11, 8, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 16%, rgba(188, 178, 130, 0.14), transparent 22%),
+    radial-gradient(circle at 82% 14%, rgba(117, 141, 88, 0.16), transparent 20%),
+    linear-gradient(155deg, var(--bg-top), var(--bg-bottom));
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.puzzle-shell {
+  width: min(100%, 980px);
+  padding: 28px;
+  border-radius: 30px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+}
+
+h1 {
+  margin: 0;
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: clamp(1.8rem, 3.3vw, 3rem);
+}
+
+.description {
+  margin: 14px 0 0;
+  max-width: 60ch;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+button {
+  border: none;
+  padding: 14px 18px;
+  font: inherit;
+  font-weight: 700;
+  color: #f6f8ef;
+  background: linear-gradient(135deg, #687848, #87985d);
+  cursor: pointer;
+  box-shadow: 0 12px 22px rgba(47, 57, 31, 0.22);
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.legend-card {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 251, 242, 0.75);
+  border: 1px solid rgba(96, 88, 66, 0.12);
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.stone-tray {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.stone {
+  min-height: 122px;
+  padding: 18px 14px;
+  border-radius: 18px;
+  border: 2px solid var(--stone-border);
+  background: var(--stone);
+  box-shadow: var(--stone-shadow);
+  cursor: grab;
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    opacity 140ms ease;
+  text-align: center;
+}
+
+.stone:hover,
+.stone:focus-visible {
+  transform: translateY(-3px);
+}
+
+.stone.dragging {
+  opacity: 0.55;
+  cursor: grabbing;
+}
+
+.stone.drop-target {
+  border-color: var(--selected);
+  box-shadow: 0 16px 28px rgba(66, 81, 38, 0.24);
+}
+
+.stone-rune {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.stone-version {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(14, 18, 10, 0.62);
+  backdrop-filter: blur(8px);
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-card {
+  width: min(100%, 420px);
+  padding: 28px 24px;
+  border-radius: 26px;
+  background: linear-gradient(160deg, rgba(247, 243, 232, 0.98), rgba(232, 226, 208, 0.96));
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(19, 22, 15, 0.28);
+}
+
+.memory-placeholder {
+  margin: 0 0 16px;
+  min-height: 140px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed rgba(96, 88, 66, 0.28);
+  background: rgba(255, 251, 242, 0.58);
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.modal-eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.modal-card h2 {
+  margin: 0 0 12px;
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+}
+
+.modal-text {
+  margin: 0 0 20px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.modal-continue {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding: 16px;
+  }
+
+  .puzzle-shell {
+    padding: 22px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button {
+    width: 100%;
+  }
+}
