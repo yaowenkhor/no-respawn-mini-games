@@ -34,9 +34,9 @@ const closeIllusionButton = document.getElementById("closeIllusionButton");
 const treeImage = new Image();
 const playerImage = new Image();
 
-treeImage.src = "../../assets/img/tree.png";
+treeImage.src = "../assets/img/tree.png";
 treeImage.addEventListener("load", drawMaze);
-playerImage.src = "../../assets/img/jin_head.png";
+playerImage.src = "../assets/img/jin_head.png";
 playerImage.addEventListener("load", drawMaze);
 
 const tileSize = canvas.width / maze[0].length;
