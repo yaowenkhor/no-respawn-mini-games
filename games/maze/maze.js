@@ -32,12 +32,9 @@ const illusionTitle = document.getElementById("illusionTitle");
 const illusionText = document.getElementById("illusionText");
 const closeIllusionButton = document.getElementById("closeIllusionButton");
 const treeImage = new Image();
-const playerImage = new Image();
 
 treeImage.src = "../assets/img/tree.png";
 treeImage.addEventListener("load", drawMaze);
-playerImage.src = "../assets/img/jin_head.png";
-playerImage.addEventListener("load", drawMaze);
 
 const tileSize = canvas.width / maze[0].length;
 const moveDuration = 140;
@@ -165,23 +162,15 @@ function drawPlayer() {
     state.player.drawY * tileSize +
     tileSize / 2 -
     Math.sin(state.player.progress * Math.PI) * tileSize * 0.08;
-  const spriteSize = tileSize * 0.62;
-
-  if (playerImage.complete && playerImage.naturalWidth > 0) {
-    ctx.drawImage(
-      playerImage,
-      centerX - spriteSize / 2,
-      centerY - spriteSize / 2,
-      spriteSize,
-      spriteSize,
-    );
-    return;
-  }
-
   const radius = tileSize * 0.24;
   ctx.beginPath();
   ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
   ctx.fillStyle = "#ff5d73";
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(centerX - 4, centerY - 5, radius * 0.35, 0, Math.PI * 2);
+  ctx.fillStyle = "rgba(255,255,255,0.55)";
   ctx.fill();
 }
 
