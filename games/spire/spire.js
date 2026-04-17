@@ -13,7 +13,7 @@ const consequences = {
   absorb: {
     eyebrow: "Endfall Vision",
     title: "The Spire breaks open",
-    text: "Jin lives, but the power tears through the Mana Spire and floods the horizon with ruin. This is a placeholder for a destruction scene, loss image, or narrated collapse.",
+    text: "Jin lives, but the power tears through the Mana Spire and floods the horizon with ruin.",
     message:
       "Endfall is triggered in this vision. Rewind and choose again if you want to preserve the world.",
     tone: "danger",
@@ -22,7 +22,7 @@ const consequences = {
   stabilize: {
     eyebrow: "Fate Decided",
     title: "The Mana Spire is Stable",
-    text: "Jin gives up the power and anchors the core. The Spire endures, and the world survives. This is the correct ending and can later hold a final artwork or closing passage.",
+    text: "Jin gives up the power and anchors the core. The Spire endures, and the world survives.",
     message: "Jin chooses sacrifice over destruction. The Spire holds.",
     tone: "safe",
     final: true,

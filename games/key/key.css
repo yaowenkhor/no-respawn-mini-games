@@ -298,18 +298,6 @@ button {
   font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
 }
 
-.modal-placeholder {
-  min-height: 140px;
-  margin: 0 0 16px;
-  display: grid;
-  place-items: center;
-  border-radius: 18px;
-  border: 1px dashed rgba(135, 109, 92, 0.28);
-  background: rgba(255, 248, 241, 0.72);
-  color: var(--muted);
-  font-weight: 700;
-}
-
 .modal-text {
   margin: 0 0 20px;
   line-height: 1.5;
@@ -319,6 +307,10 @@ button {
 .modal-continue {
   margin-bottom: 0;
   font-weight: 700;
+}
+
+.modal-action {
+  margin-top: 20px;
 }
 
 @media (max-width: 760px) {

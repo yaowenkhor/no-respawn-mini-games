@@ -27,10 +27,6 @@ const canvas = document.getElementById("mazeCanvas");
 const ctx = canvas.getContext("2d");
 const resetButton = document.getElementById("resetButton");
 const winModal = document.getElementById("winModal");
-const illusionModal = document.getElementById("illusionModal");
-const illusionTitle = document.getElementById("illusionTitle");
-const illusionText = document.getElementById("illusionText");
-const closeIllusionButton = document.getElementById("closeIllusionButton");
 const treeImage = new Image();
 
 treeImage.src = "../assets/img/tree.png";
@@ -39,26 +35,6 @@ treeImage.addEventListener("load", drawMaze);
 const tileSize = canvas.width / maze[0].length;
 const moveDuration = 140;
 const tileOverlap = 0.6;
-const illusionTriggers = [
-  {
-    x: 5,
-    y: 3,
-    title: "A crown of branches",
-    text: "Jin sees himself claiming glory too early. This dead end can hold a fear, desire, or image later.",
-  },
-  {
-    x: 15,
-    y: 3,
-    title: "The longbow's promise",
-    text: "A whisper tempts Jin with power and praise. This is a placeholder encounter for a wrong-path illusion.",
-  },
-  {
-    x: 9,
-    y: 15,
-    title: "Endfall's echo",
-    text: "The woods show Jin a ruined future. You can replace this with custom text or a photo-based vision later.",
-  },
-];
 
 const state = {
   player: {
@@ -74,7 +50,6 @@ const state = {
     progress: 0,
     moving: false,
   },
-  seenIllusions: new Set(),
   won: false,
 };
 
@@ -100,7 +75,6 @@ function drawMaze() {
     }
   }
 
-  drawIllusionMarkers();
   drawExit();
   drawPlayer();
 }
@@ -142,20 +116,6 @@ function drawExit() {
   ctx.strokeRect(x + 6, y + 6, tileSize - 12, tileSize - 12);
 }
 
-function drawIllusionMarkers() {
-  illusionTriggers.forEach((trigger) => {
-    const x = trigger.x * tileSize;
-    const y = trigger.y * tileSize;
-
-    ctx.fillStyle = "rgba(214, 47, 67, 0.88)";
-    ctx.fillRect(x + 8, y + 8, tileSize - 16, tileSize - 16);
-
-    ctx.strokeStyle = "rgba(120, 10, 24, 0.9)";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(x + 8, y + 8, tileSize - 16, tileSize - 16);
-  });
-}
-
 function drawPlayer() {
   const centerX = state.player.drawX * tileSize + tileSize / 2;
   const centerY =
@@ -194,34 +154,6 @@ function showWinModal() {
 function hideWinModal() {
   winModal.classList.add("hidden");
   winModal.setAttribute("aria-hidden", "true");
-}
-
-function showIllusion(trigger) {
-  illusionTitle.textContent = trigger.title;
-  illusionText.textContent = trigger.text;
-  illusionModal.classList.remove("hidden");
-  illusionModal.setAttribute("aria-hidden", "false");
-}
-
-function hideIllusion() {
-  illusionModal.classList.add("hidden");
-  illusionModal.setAttribute("aria-hidden", "true");
-}
-
-function checkIllusionTrigger() {
-  const trigger = illusionTriggers.find(
-    (entry) =>
-      entry.x === state.player.tileX &&
-      entry.y === state.player.tileY &&
-      !state.seenIllusions.has(`${entry.x},${entry.y}`),
-  );
-
-  if (!trigger) {
-    return;
-  }
-
-  state.seenIllusions.add(`${trigger.x},${trigger.y}`);
-  showIllusion(trigger);
 }
 
 function movePlayer(dx, dy) {
@@ -274,7 +206,6 @@ function animatePlayerStep(timestamp) {
   state.player.progress = 0;
   state.player.moving = false;
   drawMaze();
-  checkIllusionTrigger();
   checkWin();
 }
 
@@ -292,10 +223,8 @@ function resetGame() {
     progress: 0,
     moving: false,
   };
-  state.seenIllusions = new Set();
   state.won = false;
   hideWinModal();
-  hideIllusion();
   drawMaze();
 }
 
@@ -330,6 +259,5 @@ function handleKeydown(event) {
 
 window.addEventListener("keydown", handleKeydown);
 resetButton.addEventListener("click", resetGame);
-closeIllusionButton.addEventListener("click", hideIllusion);
 
 resetGame();

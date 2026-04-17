@@ -180,17 +180,6 @@ button:focus-visible {
   box-shadow: 0 24px 60px rgba(19, 22, 15, 0.28);
 }
 
-.memory-placeholder {
-  margin: 0 0 16px;
-  min-height: 140px;
-  display: grid;
-  place-items: center;
-  border: 1px dashed rgba(96, 88, 66, 0.28);
-  background: rgba(255, 251, 242, 0.58);
-  color: var(--muted);
-  font-weight: 700;
-}
-
 .modal-eyebrow {
   margin: 0 0 10px;
   font-size: 0.72rem;

@@ -227,18 +227,6 @@ h1 {
   font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
 }
 
-.vision-placeholder {
-  min-height: 160px;
-  margin: 0 0 16px;
-  display: grid;
-  place-items: center;
-  border-radius: 20px;
-  border: 1px dashed rgba(114, 126, 166, 0.28);
-  background: rgba(236, 241, 252, 0.8);
-  color: var(--muted);
-  font-weight: 700;
-}
-
 .modal-text {
   margin: 0 0 20px;
   line-height: 1.5;

@@ -7,6 +7,8 @@ const resultModal = document.getElementById("resultModal");
 const resultEyebrow = document.getElementById("resultEyebrow");
 const resultTitle = document.getElementById("resultTitle");
 const resultText = document.getElementById("resultText");
+const resultContinue = document.getElementById("resultContinue");
+const playAgainButton = document.getElementById("playAgainButton");
 const sceneBoard = document.getElementById("sceneBoard");
 
 const totalTime = 60;
@@ -31,10 +33,12 @@ function updateTimer() {
   timerText.textContent = `${Math.max(0, Math.ceil(state.timeLeft))}s`;
 }
 
-function showResult({ eyebrow, title, text }) {
+function showResult({ eyebrow, title, text, allowContinue }) {
   resultEyebrow.textContent = eyebrow;
   resultTitle.textContent = title;
   resultText.textContent = text;
+  resultContinue.classList.toggle("hidden", !allowContinue);
+  playAgainButton.classList.toggle("hidden", allowContinue);
   resultModal.classList.remove("hidden");
   resultModal.setAttribute("aria-hidden", "false");
 }
@@ -110,6 +114,7 @@ function failGame() {
     eyebrow: "Guard Awakens",
     title: "The chance is lost",
     text: "Jin hesitates too long and the drunken guard wakes with the keys still in reach.",
+    allowContinue: false,
   });
 }
 
@@ -126,6 +131,7 @@ function winGame() {
     eyebrow: "Key Secured",
     title: "Jin finds the key",
     text: "Jin lifts the key from the drunken guard in time. Janice's cell is no longer beyond reach.",
+    allowContinue: true,
   });
 }
 
@@ -200,6 +206,7 @@ function resetGame() {
 mumbleButton.addEventListener("click", listenToMumbling);
 
 resetButton.addEventListener("click", resetGame);
+playAgainButton.addEventListener("click", resetGame);
 
 keySpot.addEventListener("click", (event) => {
   event.stopPropagation();

@@ -1,9 +1,9 @@
 const initialStones = [
-  { id: "v1-2", rune: "triangle ||", version: "v1.2", order: 3 },
-  { id: "v1-0", rune: "triangle", version: "v1.0", order: 1 },
-  { id: "v1-3", rune: "triangle |||", version: "v1.3", order: 4 },
-  { id: "v1-1", rune: "triangle |", version: "v1.1", order: 2 },
-  { id: "v1-1-1", rune: "triangle | dot", version: "v1.1.1", order: 2.5 },
+  { id: "v1-2", rune: "△ ||", version: "v1.2", order: 3 },
+  { id: "v1-0", rune: "△", version: "v1.0", order: 1 },
+  { id: "v1-3", rune: "△ |||", version: "v1.3", order: 4 },
+  { id: "v1-1", rune: "△ |", version: "v1.1", order: 2 },
+  { id: "v1-1-1", rune: "△ | •", version: "v1.1.1", order: 2.5 },
 ];
 
 const stoneTray = document.getElementById("stoneTray");
