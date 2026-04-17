@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mana Spire Crystal Assembly</title>
+    <link rel="stylesheet" href="crystal/crystal.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="puzzle-shell">
+        <div class="puzzle-copy">
+          <p class="eyebrow">Mana Spire Repair</p>
+          <h1>Stabilize the Crystal Core</h1>
+          <p class="description">
+            Jin needs to rebuild the broken crystal cluster on the Mana Spire's
+            mechanism. Drag each fragment into the matching glowing slot to
+            restore the flow of mana.
+          </p>
+        </div>
+
+        <div class="toolbar">
+          <p id="statusText" class="status">
+            Drag a crystal fragment onto the matching outline in the cluster.
+          </p>
+          <div class="toolbar-actions">
+            <button id="resetButton" type="button">Reset Puzzle</button>
+          </div>
+        </div>
+
+        <section class="scene" aria-label="Mana Spire crystal puzzle">
+          <div class="scene-copy">
+            <h2>Assembly Board</h2>
+            <p>
+              The reference art shows a tight crystal bundle on a stone base, so
+              this puzzle turns that cluster into five distinct fragments with
+              matching silhouettes.
+            </p>
+          </div>
+
+          <div class="board-wrap">
+            <div id="board" class="board">
+              <div class="pedestal">
+                <div class="pedestal-top"></div>
+                <div class="pedestal-front"></div>
+              </div>
+
+              <div id="slotsLayer" class="slots-layer" aria-hidden="true">
+                <div class="slot slot-left" data-slot="left"></div>
+                <div class="slot slot-center" data-slot="center"></div>
+                <div class="slot slot-rear-left" data-slot="rear-left"></div>
+                <div class="slot slot-rear-right" data-slot="rear-right"></div>
+                <div class="slot slot-right" data-slot="right"></div>
+              </div>
+
+              <div class="mana-ring mana-ring-a"></div>
+              <div class="mana-ring mana-ring-b"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tray-section">
+          <div class="tray-copy">
+            <h2>Loose Fragments</h2>
+            <p>Pick up the scattered shards and return them to the core.</p>
+          </div>
+          <div
+            id="fragmentTray"
+            class="fragment-tray"
+            aria-label="Crystal fragments"
+          ></div>
+        </section>
+      </section>
+    </main>
+
+    <div
+      id="winModal"
+      class="modal hidden"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="winTitle"
+    >
+      <div class="modal-card">
+        <p class="modal-eyebrow">Core Stabilized</p>
+        <h2 id="winTitle">The Mana Spire Hums Back to Life</h2>
+        <p class="modal-text">
+          Every crystal fragment is back in place. Jin steadies the mechanism as
+          light floods through the restored cluster.
+        </p>
+        <p class="modal-text modal-continue">
+          Continue the story when you are ready.
+        </p>
+      </div>
+    </div>
+
+    <script src="crystal/crystal.js"></script>
+  </body>
+</html>
